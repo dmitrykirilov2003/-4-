@@ -1,0 +1,46 @@
+﻿<Window x:Class="Applications.AddApeal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Applications"
+    mc:Ignorable="d"
+    Title="AddApeal" Height="450" Width="800">
+<Grid>
+    <StackPanel HorizontalAlignment="Center" Margin="0,20,0,0">
+        <TextBlock Text="Создание обращения" FontSize="20"/>
+    </StackPanel>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock  Text="Введите тему:"/>
+            <TextBox Name="Title_txt" Width="150" Height="20" Margin="45,0,0,0"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock  Text="Выберите ИС:"/>
+            <ComboBox Name="Is_combox" Width="150" Margin="45,0,0,0"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock  Text="Цель обращения:"/>
+            <TextBox Name="Purpose_txt" Width="150" Height="20" Margin="25,0,0,0"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock  Text="Выберите приоритет:"/>
+            <ComboBox Name="Priority_combox" Width="150" Margin="5,0,0,0"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock  Text="Срок выполнения:"/>
+            <TextBox Name="Date_txt" Width="150" Height="20" Margin="22,0,0,0"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock  Text="Описание:"/>
+            <TextBox Name="Description_txt" Width="150" Height="80" Margin="67,0,0,0"/>
+        </StackPanel>
+        <StackPanel Margin="0,15,0,0">
+            <Button Content="Создать обращение" Width="150" Height="25" Click="Button_Click" Background="White"/>
+        </StackPanel>
+            
+
+    </StackPanel>
+
+</Grid>
+</Window>

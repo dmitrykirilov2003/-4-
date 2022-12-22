@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2bd5c694ae1e461294eaafa6a1f2b86f" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="ApplicationsModel.Application" Width="1.5" PointX="5.25" PointY="5.75" />
+        <EntityTypeShape EntityType="ApplicationsModel.Comment" Width="1.5" PointX="7.5" PointY="7.5" />
+        <EntityTypeShape EntityType="ApplicationsModel.Information_environment" Width="1.5" PointX="0.75" PointY="4.25" />
+        <EntityTypeShape EntityType="ApplicationsModel.Login" Width="1.5" PointX="5.25" PointY="10.75" />
+        <EntityTypeShape EntityType="ApplicationsModel.Priority" Width="1.5" PointX="3" PointY="12.25" />
+        <EntityTypeShape EntityType="ApplicationsModel.Role" Width="1.5" PointX="3" PointY="15.125" />
+        <EntityTypeShape EntityType="ApplicationsModel.Status" Width="1.5" PointX="3" PointY="5.875" />
+        <EntityTypeShape EntityType="ApplicationsModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ApplicationsModel.User" Width="1.5" PointX="3" PointY="8.5" />
+        <AssociationConnector Association="ApplicationsModel.FK_Application_Information_environment" />
+        <AssociationConnector Association="ApplicationsModel.FK_Application_Priority" />
+        <AssociationConnector Association="ApplicationsModel.FK_Application_Status" />
+        <AssociationConnector Association="ApplicationsModel.FK_Application_User" />
+        <AssociationConnector Association="ApplicationsModel.FK_Application_User1" />
+        <AssociationConnector Association="ApplicationsModel.FK_Comment_Application" />
+        <AssociationConnector Association="ApplicationsModel.FK_Comment_User" />
+        <AssociationConnector Association="ApplicationsModel.FK_User_Information_environment" />
+        <AssociationConnector Association="ApplicationsModel.FK_Login_Role" />
+        <AssociationConnector Association="ApplicationsModel.FK_Login_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

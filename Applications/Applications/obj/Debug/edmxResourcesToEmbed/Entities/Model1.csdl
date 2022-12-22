@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ApplicationsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ApplicationsEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Application" EntityType="ApplicationsModel.Application" />
+    <EntitySet Name="Comment" EntityType="ApplicationsModel.Comment" />
+    <EntitySet Name="Information_environment" EntityType="ApplicationsModel.Information_environment" />
+    <EntitySet Name="Login" EntityType="ApplicationsModel.Login" />
+    <EntitySet Name="Priority" EntityType="ApplicationsModel.Priority" />
+    <EntitySet Name="Role" EntityType="ApplicationsModel.Role" />
+    <EntitySet Name="Status" EntityType="ApplicationsModel.Status" />
+    <EntitySet Name="sysdiagrams" EntityType="ApplicationsModel.sysdiagrams" />
+    <EntitySet Name="User" EntityType="ApplicationsModel.User" />
+    <AssociationSet Name="FK_Application_Information_environment" Association="ApplicationsModel.FK_Application_Information_environment">
+      <End Role="Information_environment" EntitySet="Information_environment" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_Priority" Association="ApplicationsModel.FK_Application_Priority">
+      <End Role="Priority" EntitySet="Priority" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_Status" Association="ApplicationsModel.FK_Application_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_User" Association="ApplicationsModel.FK_Application_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_User1" Association="ApplicationsModel.FK_Application_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Application" EntitySet="Application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Application" Association="ApplicationsModel.FK_Comment_Application">
+      <End Role="Application" EntitySet="Application" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_User" Association="ApplicationsModel.FK_Comment_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_environment" Association="ApplicationsModel.FK_User_Information_environment">
+      <End Role="Information_environment" EntitySet="Information_environment" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_Role" Association="ApplicationsModel.FK_Login_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Login" EntitySet="Login" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_User" Association="ApplicationsModel.FK_Login_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Login" EntitySet="Login" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Purpose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="IS" Type="Int32" />
+    <Property Name="IdСustomer" Type="Int32" />
+    <Property Name="IdExecutor" Type="Int32" />
+    <NavigationProperty Name="Information_environment" Relationship="ApplicationsModel.FK_Application_Information_environment" FromRole="Application" ToRole="Information_environment" />
+    <NavigationProperty Name="Priority1" Relationship="ApplicationsModel.FK_Application_Priority" FromRole="Application" ToRole="Priority" />
+    <NavigationProperty Name="Status1" Relationship="ApplicationsModel.FK_Application_Status" FromRole="Application" ToRole="Status" />
+    <NavigationProperty Name="User" Relationship="ApplicationsModel.FK_Application_User" FromRole="Application" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="ApplicationsModel.FK_Application_User1" FromRole="Application" ToRole="User" />
+    <NavigationProperty Name="Comment" Relationship="ApplicationsModel.FK_Comment_Application" FromRole="Application" ToRole="Comment" />
+    <Property Name="Estimation" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="ApplicationId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Application" Relationship="ApplicationsModel.FK_Comment_Application" FromRole="Comment" ToRole="Application" />
+    <NavigationProperty Name="User" Relationship="ApplicationsModel.FK_Comment_User" FromRole="Comment" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Information_environment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Application" Relationship="ApplicationsModel.FK_Application_Information_environment" FromRole="Information_environment" ToRole="Application" />
+    <NavigationProperty Name="User" Relationship="ApplicationsModel.FK_User_Information_environment" FromRole="Information_environment" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Role" Type="Int32" />
+    <NavigationProperty Name="Role1" Relationship="ApplicationsModel.FK_Login_Role" FromRole="Login" ToRole="Role" />
+    <NavigationProperty Name="User" Relationship="ApplicationsModel.FK_Login_User" FromRole="Login" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Priority">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Application" Relationship="ApplicationsModel.FK_Application_Priority" FromRole="Priority" ToRole="Application" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Login" Relationship="ApplicationsModel.FK_Login_Role" FromRole="Role" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Application" Relationship="ApplicationsModel.FK_Application_Status" FromRole="Status" ToRole="Application" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IS" Type="Int32" />
+    <NavigationProperty Name="Application" Relationship="ApplicationsModel.FK_Application_User" FromRole="User" ToRole="Application" />
+    <NavigationProperty Name="Application1" Relationship="ApplicationsModel.FK_Application_User1" FromRole="User" ToRole="Application" />
+    <NavigationProperty Name="Comment" Relationship="ApplicationsModel.FK_Comment_User" FromRole="User" ToRole="Comment" />
+    <NavigationProperty Name="Information_environment" Relationship="ApplicationsModel.FK_User_Information_environment" FromRole="User" ToRole="Information_environment" />
+    <NavigationProperty Name="Login" Relationship="ApplicationsModel.FK_Login_User" FromRole="User" ToRole="Login" />
+  </EntityType>
+  <Association Name="FK_Application_Information_environment">
+    <End Type="ApplicationsModel.Information_environment" Role="Information_environment" Multiplicity="0..1" />
+    <End Type="ApplicationsModel.Application" Role="Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Information_environment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="IS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_Priority">
+    <End Type="ApplicationsModel.Priority" Role="Priority" Multiplicity="0..1" />
+    <End Type="ApplicationsModel.Application" Role="Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priority">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="Priority" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_Status">
+    <End Type="ApplicationsModel.Status" Role="Status" Multiplicity="0..1" />
+    <End Type="ApplicationsModel.Application" Role="Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_User">
+    <End Type="ApplicationsModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="ApplicationsModel.Application" Role="Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="IdСustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_User1">
+    <End Type="ApplicationsModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="ApplicationsModel.Application" Role="Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="IdExecutor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Application">
+    <End Type="ApplicationsModel.Application" Role="Application" Multiplicity="0..1" />
+    <End Type="ApplicationsModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Application">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_User">
+    <End Type="ApplicationsModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="ApplicationsModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_environment">
+    <End Type="ApplicationsModel.Information_environment" Role="Information_environment" Multiplicity="0..1" />
+    <End Type="ApplicationsModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Information_environment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_Role">
+    <End Type="ApplicationsModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="ApplicationsModel.Login" Role="Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_User">
+    <End Type="ApplicationsModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="ApplicationsModel.Login" Role="Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

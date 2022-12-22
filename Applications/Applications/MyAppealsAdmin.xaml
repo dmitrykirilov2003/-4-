@@ -1,0 +1,56 @@
+﻿<Window x:Class="Applications.MyAppealsAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Applications"
+        mc:Ignorable="d"
+        Title="MyAppealsAdmin" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Мои обращения" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0"/>
+        <ListView Name="LView" Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border x:Name="Appe" BorderBrush="Gray" BorderThickness="2" Width="750">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="15,5">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Тема:"/>
+                                    <TextBlock Text="{Binding Title}" FontWeight="Bold" Margin="5,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                                    <TextBlock Text="ИС:"/>
+                                    <TextBlock Text="{Binding information_environment}" Margin="5,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                                    <TextBlock Text="Цель обращения:"/>
+                                    <TextBlock Text="{Binding Purpose}" Margin="5,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                                    <TextBlock Text="Приоритет:"/>
+                                    <TextBlock Text="{Binding priority}" Margin="5,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                                    <TextBlock Text="Срок:"/>
+                                    <TextBlock Text="{Binding Date}" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Center">
+                                <Button Name="doneBtn" Content="Готово" Width="150" Height="25" Click="doneBtn_Click"/>
+                                <Button Name="impossibleBtn" Content="Невозможно выполнить" Width="150" Height="25" Margin="0,7,0,0" Click="impossibleBtn_Click"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
